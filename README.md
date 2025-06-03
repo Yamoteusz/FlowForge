@@ -33,7 +33,6 @@ FlowForge/
 ├── README.md # Project description and setup guide
 └── requirements.txt # Python dependencies
 
-
 ---
 
 ## Technologies Used
@@ -60,7 +59,7 @@ FlowForge/
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yamoteusz/FlowForge.git
+    git clone https://github.com/yourusername/FlowForge.git
     cd FlowForge
     ```
 
