@@ -1,0 +1,22 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - main  # Akcja uruchomi się po każdym pushu na gałąź main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Możesz zmienić na Windows, jeśli chcesz
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Heroku
+        uses: akshnz/heroku-action@v1
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}  # API Key z GitHub Secrets
+
+      - name: Deploy to Heroku
+        run: git push heroku main  # Deploy na Heroku

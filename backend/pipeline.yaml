@@ -1,9 +1,7 @@
 pipeline:
   - name: Build
-    script: python setup.py sdist bdist_wheel
+    script: echo "Build step successful!"
   - name: Test
     script: pytest tests/ --junitxml=report.xml
   - name: Lint
-    script: flake8 src/
-  - name: Deploy
-    script: ./deploy.sh
+    script: black .

@@ -4,12 +4,15 @@ from backend.pipeline import load_pipeline, run_pipeline
 # Tworzymy instancję aplikacji FastAPI
 app = FastAPI()
 
+
 # Endpoint ping
 @app.get("/ping")
 def read_ping():
     return {"message": "Pong!"}
 
+
 app = FastAPI()
+
 
 # Endpoint do uruchomienia pipeline'u
 @app.post("/run_pipeline")
