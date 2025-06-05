@@ -28,3 +28,16 @@ def run_pipeline(pipeline):
             print(f"Error in step {name}: {e.stderr}")
             return {"status": "failed", "step": name}
     return {"status": "success"}
+if result["status"] == "success":
+    send_discord_message("✅ FlowForge pipeline completed successfully.")
+else:
+    send_discord_message(f"❌ Pipeline failed at step: {result['step']}")
+
+
+
+from discordwebhook import Discord
+
+def send_discord_message(content):
+    webhook_url = "https://discord.com/api/webhooks/1380255493997723779/fdoClrKr1A0V7edKf08bhyfAo0xLt0Bqs9Z_kCh8F2jKGB1Zyk7b9FzDx4I1Vs4N5RDe"  # Twój URL
+    discord = Discord(url=webhook_url)
+    discord.post(content=content)
