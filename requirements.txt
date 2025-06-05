@@ -4,7 +4,6 @@ anyio==4.6.2.post1
 asttokens==3.0.0
 asyncio==3.4.3
 attrs==24.2.0
-basicsr==1.4.2
 beautifulsoup4==4.12.3
 bettercam==1.0.0
 bs4==0.0.2
