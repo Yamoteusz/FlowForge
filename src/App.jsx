@@ -1,9 +1,9 @@
-import ExitModal from './components/ExitModal';
+import MaintenanceMode from './components/MaintenanceMode';
 
 function App() {
   return (
     <>
-      <ExitModal />
+      <MaintenanceMode />
       {/* Inne komponenty */}
     </>
   );
