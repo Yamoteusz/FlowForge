@@ -10,9 +10,10 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
+/* Główna karta */
 .container {
     background: white;
     padding: 40px 32px;
@@ -20,17 +21,20 @@ body {
     box-shadow: 0 4px 32px rgba(80, 90, 170, 0.14), 0 1.5px 6px rgba(120, 120, 140, 0.03);
     min-width: 360px;
     width: 100%;
-    max-width: 460px;
+    max-width: 1020px;
+    margin: 40px auto 24px auto;
 }
 
+/* Nagłówek */
 h1 {
     color: #282d4f;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     letter-spacing: 0.01em;
     font-size: 1.7rem;
 }
 
+/* Przycisk główny i podglądu */
 .main-btn {
     background: linear-gradient(90deg, #6b47dc 0%, #0096ff 100%);
     color: white;
@@ -44,17 +48,24 @@ h1 {
     margin-bottom: 18px;
     margin-top: 8px;
     box-shadow: 0 1.5px 4px rgba(80,90,170,0.12);
+    display: inline-block;
 }
-
 .main-btn:hover {
     background: linear-gradient(90deg, #5b39b6 0%, #0c6bb2 100%);
     transform: scale(1.035);
 }
+.preview-btn {
+    margin-left: 14px;
+    background: linear-gradient(90deg, #b9a6f8 0%, #21b4b8 100%);
+}
+.preview-btn:hover {
+    background: linear-gradient(90deg, #a17bff 0%, #14c0fd 100%);
+}
 
+/* Kroki pipeline */
 .pipeline-steps {
     margin: 18px 0 10px 0;
 }
-
 .step-row {
     display: flex;
     align-items: center;
@@ -65,14 +76,12 @@ h1 {
     margin-bottom: 8px;
     font-size: 1rem;
 }
-
 .step-name {
     display: flex;
     align-items: center;
     gap: 9px;
     font-weight: 500;
 }
-
 .status-dot {
     width: 13px;
     height: 13px;
@@ -83,13 +92,11 @@ h1 {
 .status-dot.running { background: #22a6f5; animation: pulse 1.2s infinite; }
 .status-dot.success { background: #36d07f; }
 .status-dot.failed { background: #ff5050; }
-
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 #22a6f533; }
     70% { box-shadow: 0 0 0 12px #22a6f500; }
     100% { box-shadow: 0 0 0 0 #22a6f500; }
 }
-
 .step-status {
     font-size: 1em;
     font-weight: 500;
@@ -104,3 +111,128 @@ h1 {
     font-size: 1.11rem;
     min-height: 28px;
 }
+
+/* Boksy dashboardu */
+.dashboard-flex {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    justify-content: space-between;
+    width: 100%;
+}
+.box {
+    background: #f7f8fc;
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 220px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(80, 90, 170, 0.06);
+    flex: 1 1 0;
+    max-width: 320px;
+}
+@media (max-width: 900px) {
+    .dashboard-flex {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .box {
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+/* Przyciski quick actions */
+.quick-actions button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 11px 0;
+    background: linear-gradient(90deg, #21b46e 0%, #14c0fd 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.13s;
+}
+.quick-actions button:hover {
+    background: linear-gradient(90deg, #19885d 0%, #0a9fc5 100%);
+    transform: scale(1.025);
+}
+
+/* Recent builds i logi */
+.history-list {
+    list-style: none;
+    margin-top: 13px;
+    padding-left: 0;
+}
+.history-list li {
+    background: #ffffff;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    font-size: 0.96rem;
+    box-shadow: 0 1px 3px rgba(80,90,170,0.04);
+}
+.mini-log {
+    color: #7a819a;
+    font-size: 0.88em;
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap;
+}
+
+/* Komunikaty */
+.success-msg {
+    color: #21b46e;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    font-size: 1.09rem;
+}
+.fail-msg {
+    color: #e33636;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    font-size: 1.09rem;
+}
+
+/* MODALE */
+.modal {
+    position: fixed;
+    z-index: 10;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(22,26,60,0.13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: #fff;
+    padding: 28px 24px 18px 24px;
+    border-radius: 15px;
+    min-width: 340px;
+    min-height: 280px;
+    max-height: 80vh;
+    overflow: auto;
+    box-shadow: 0 8px 48px rgba(22,28,50,0.12);
+    position: relative;
+}
+.close {
+    position: absolute;
+    top: 14px; right: 18px;
+    font-size: 2rem;
+    color: #888;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.close:hover { color: #c42a2a; }

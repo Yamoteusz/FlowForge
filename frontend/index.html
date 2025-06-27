@@ -10,11 +10,47 @@
     <div class="container">
         <h1>FlowForge - Run CI/CD Pipeline</h1>
         <button id="run-pipeline" onclick="runPipeline()" class="main-btn">▶️ Run Pipeline</button>
+        <button onclick="previewYaml()" class="main-btn preview-btn">👁️ Preview pipeline.yaml</button>
 
-        <div class="pipeline-steps" id="steps-list">
-            <!-- Kroki pipeline wypełni JS -->
-        </div>
+        <div class="pipeline-steps" id="steps-list"></div>
         <div id="status" class="status-box"></div>
+
+        <div class="dashboard-flex">
+            <div class="box">
+                <b>Recent Builds</b>
+                <ul id="recent-builds" class="history-list"></ul>
+            </div>
+            <div class="box">
+                <b>Quick Actions</b>
+                <div class="quick-actions">
+                    <button onclick="deploy()">Deploy to Production</button>
+                    <button onclick="rollback()">Rollback Last Deploy</button>
+                    <button onclick="showLogs()">View Logs</button>
+                </div>
+            </div>
+            <div class="box">
+                <b>System Health</b>
+                <div id="health"></div>
+            </div>
+        </div>
+
+        <!-- MODAL: Podgląd logów -->
+        <div id="logs-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeLogs()">&times;</span>
+                <h3>Pipeline Logs</h3>
+                <pre id="logs-content"></pre>
+            </div>
+        </div>
+
+        <!-- MODAL: Podgląd pipeline.yaml -->
+        <div id="yaml-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeYaml()">&times;</span>
+                <h3>pipeline.yaml</h3>
+                <pre id="yaml-content" style="max-height:400px; overflow:auto;"></pre>
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
